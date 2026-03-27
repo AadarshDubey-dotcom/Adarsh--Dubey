@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import './About.css';
 import ScrollFloat from "../ScrollFloat/ScrollFloat";
-import BlurText from '../BlurText';
 
 const About = () => {
   const ref = React.useRef(null);

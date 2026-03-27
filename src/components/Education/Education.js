@@ -2,7 +2,6 @@ import React from 'react'
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import './Education.css';
-import ScrollFloat from "../ScrollFloat/ScrollFloat";
 
 const Education = () => {
   const ref = React.useRef(null);
