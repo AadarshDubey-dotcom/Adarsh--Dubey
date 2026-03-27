@@ -10,7 +10,7 @@ const projects = [
     title: "Piano",
     desc: "A responsive website built with pure HTML and CSS, showcasing clean design and user-friendly layout.",
     tech: ["HTML", "CSS", "Javascript"],
-    image: "/Piano.jpg",
+    image: "/piano.jpg",
     link: "https://lnkd.in/gK2wNuFe",
   },
   {
