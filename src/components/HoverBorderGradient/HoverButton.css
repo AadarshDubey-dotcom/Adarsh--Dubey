@@ -1,0 +1,81 @@
+﻿.hover-btn,
+.hover-btn-link {
+  position: relative;
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 50px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+/* inner dark bg */
+.btn-bg {
+  position: absolute;
+  inset: 2px;
+  background: #0a0a0a;
+  border-radius: 50px;
+  z-index: 0;
+}
+
+/* text */
+.btn-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* border layer */
+.gradient-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  padding: 2px;
+  background: linear-gradient(120deg, transparent, transparent);
+  z-index: 1;
+  transition: all 0.4s ease;
+}
+
+/* hover effect */
+.gradient-border.active {
+  background: linear-gradient(
+    120deg,
+    transparent,
+    #aaa,
+    #d1d5db,
+    transparent
+  );
+  background-size: 200% 200%;
+  animation: borderMove 2s linear infinite;
+}
+
+/* animation */
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* hover scale */
+.hover-btn:hover,
+.hover-btn-link:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+
+/* outline version */
+.hover-btn.outline .btn-bg {
+  background: transparent;
+}
+
+.hover-btn.outline .btn-content {
+  color: #d1d5db;
+}

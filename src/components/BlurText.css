@@ -1,0 +1,16 @@
+.blur-text {
+  display: inline-block;
+  color: #ffffff !important;
+}
+
+.blur-word {
+  display: inline-block;
+  white-space: nowrap;
+  color: #ffffff !important;
+}
+
+.blur-char {
+  display: inline-block;
+  will-change: filter, opacity, transform;
+  color: #ffffff !important;
+}

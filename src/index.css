@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #020617;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global responsive image styles */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* General responsive styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Mobile-first responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  
+  section {
+    padding: 40px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+  
+  section {
+    padding: 30px 10px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Performance optimizations */
+.will-animate {
+  will-change: transform, opacity;
+}
+
+/* GPU acceleration for animated elements */
+motion-section,
+motion-div,
+.project-card,
+.card,
+.hover-btn {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Containment for better rendering */
+section {
+  contain: layout style;
+}
+
+/* Reduce paint areas */
+.project-card,
+.card,
+.hover-btn {
+  contain: layout style paint;
+}

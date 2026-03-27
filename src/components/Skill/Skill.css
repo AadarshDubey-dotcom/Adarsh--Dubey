@@ -1,0 +1,37 @@
+.skills {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.skills h2 {
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #ffff;
+  display: inline-block;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .skills {
+    padding: 40px 15px;
+    margin: 20px auto;
+  }
+  
+  .skills h2 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills {
+    padding: 30px 10px;
+    margin: 15px auto;
+  }
+  
+  .skills h2 {
+    font-size: 28px;
+  }
+}

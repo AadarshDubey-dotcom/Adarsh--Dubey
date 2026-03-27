@@ -1,0 +1,32 @@
+.logo-loop {
+  overflow: hidden;
+  width: 100%;
+  padding: 40px 0;
+}
+
+.logo-track {
+  display: flex;
+  gap: 60px;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.logo-track img {
+  height: 80px;
+  width: 80px;
+  object-fit: contain;
+  transition: 0.3s;
+}
+
+.logo-track img:hover {
+  transform: scale(1.2);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

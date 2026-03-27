@@ -1,0 +1,207 @@
+.resume{
+    font-size: 30px;
+    font-weight: 300;
+    padding: 80px 20px;
+    color: #ffffff;
+    text-align: center;
+    min-height: 100vh;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.resume:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.resume-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 40px auto;
+  align-items: center;
+}
+
+.resume-left {
+  text-align: left;
+}
+
+.resume-right {
+  display: flex;
+  justify-content: center;
+}
+
+
+.resume-title {
+    color: #ffffff;
+    margin-bottom: 40px;
+    background: linear-gradient(to right, #fff, #3b82f6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+}
+
+.resume-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+    border-radius: 1px;
+}
+.resume-desc {
+    margin: 20px 0;
+    font-size: 2m;
+    line-height: 1.6;
+    color: #a1a1aa;
+    font-weight: 400;
+}
+.resume-button{
+    margin: 30px 0;
+    display: flex;
+    gap: 1rem;
+}
+
+/* Resume button styling to match home page */
+.resume-button button,
+.resume-button .hover-btn,
+.resume-button .hover-btn-link {
+    padding: 12px 20px;
+    border: 2px solid #a1a1aa;
+    border-radius: 50px;
+    background: transparent;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.resume-button button:hover,
+.resume-button .hover-btn:hover,
+.resume-button .hover-btn-link:hover {
+    transform: scale(1.05);
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+.resume-card{
+    position: relative;
+    max-width: 450px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.45s ease;
+    margin: 0;
+}
+.resume-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 80px rgba(255,255,255,0.2);
+}
+
+.resume-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+
+  background: linear-gradient(120deg, white, transparent, white);
+
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+
+  opacity: 0.3;
+}
+.resume-card iframe {
+  width: 100%;
+  height: 350px;
+  border-radius: 12px;
+  border: none;
+  filter: blur(4px);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .resume {
+    padding: 60px 15px;
+    font-size: 24px;
+  }
+  
+  .resume-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin: 30px auto;
+  }
+  
+  .resume-left {
+    text-align: center;
+  }
+  
+  .resume-title {
+    font-size: 36px;
+  }
+  
+  .resume-desc {
+    font-size: 1rem;
+  }
+  
+  .resume-button {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .resume-button button,
+  .resume-button .hover-btn,
+  .resume-button .hover-btn-link {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .resume-card {
+    max-width: 100%;
+  }
+  
+  .resume-card iframe {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume {
+    padding: 40px 10px;
+    font-size: 20px;
+  }
+  
+  .resume-title {
+    font-size: 28px;
+  }
+  
+  .resume-desc {
+    font-size: 0.9rem;
+  }
+  
+  .resume-button button,
+  .resume-button .hover-btn,
+  .resume-button .hover-btn-link {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .resume-card iframe {
+    height: 250px;
+  }
+}

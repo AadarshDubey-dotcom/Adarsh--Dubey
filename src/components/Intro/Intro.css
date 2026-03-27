@@ -1,0 +1,132 @@
+/* ===== INTRO SCREEN ===== */
+.intro {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #0a0a0a, #000000);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+  overflow: hidden;
+  font-size: 30px;
+  font-weight: 400;
+
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* subtle moving glow background */
+.intro::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent);
+  filter: blur(80px);
+  animation: glowMove 6s infinite alternate;
+}
+
+@keyframes glowMove {
+  0% {
+    transform: translate(-100px, -50px);
+  }
+  100% {
+    transform: translate(100px, 50px);
+  }
+}
+
+/* ===== TEXT STYLE ===== */
+.intro-text {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-align: center;
+  max-width: 90vw;
+  line-height: 1.2;
+
+  color: #ffffff !important;
+  
+  /* premium glow */
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3),
+               0 0 60px rgba(255, 255, 255, 0.15),
+               0 0 90px rgba(255, 255, 255, 0.08);
+
+  /* pulse glow animation */
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* blur text styling */
+.blur-text {
+  display: inline-block;
+  color: #ffffff !important;
+}
+
+.blur-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.blur-char {
+  display: inline-block;
+  will-change: filter, opacity;
+}
+
+/* glow pulse animation */
+@keyframes glowPulse {
+  0%, 100% {
+    filter: brightness(1);
+    transform: scale(1);
+  }
+  50% {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes textPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* gradient shine animation */
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* pulse animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+/* ===== HOME ENTRY ===== */
+.page-wrapper {
+  animation: pageReveal 1.2s ease forwards;
+}
+
+@keyframes pageReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
