@@ -36,7 +36,7 @@ const ScrollFloat = ({
 
     const charElements = el.querySelectorAll('.char');
 
-    gsap.fromTo(
+    const tween = gsap.fromTo(
       charElements,
       {
         willChange: 'opacity, transform',
@@ -63,6 +63,16 @@ const ScrollFloat = ({
         }
       }
     );
+
+    // Cleanup function
+    return () => {
+      tween.kill();
+      ScrollTrigger.getAll().forEach(st => {
+        if (st.trigger === el) {
+          st.kill();
+        }
+      });
+    };
   }, [scrollContainerRef, animationDuration, ease, scrollStart, scrollEnd, stagger]);
 
   return (
