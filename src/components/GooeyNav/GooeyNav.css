@@ -35,13 +35,13 @@
   width: fit-content;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(20, 20, 40, 0.6);
   padding: 0.3em 0.6em;         
   border-radius: 999px;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
   box-shadow: 
-    0 8px 25px rgba(0,0,0,0.15),
-    0 0 10px rgba(0,0,0,0.05);
+    0 8px 25px rgba(0,0,0,0.4),
+    0 0 10px rgba(255,255,255,0.05);
   z-index: 1000;
 }
 
@@ -61,8 +61,8 @@
   margin: 0;
   position: relative;
   z-index: 3;
-  color: #1a1a2e;
-  text-shadow: none;
+  color: white;
+  text-shadow: 0 1px 1px hsl(205deg 30% 10% / 0.2);
 }
 
 .gooey-nav-container nav ul li {
@@ -74,14 +74,14 @@
     color 0.3s ease,
     box-shadow 0.3s ease;
   box-shadow: 0 0 0.5px 1.5px transparent;
-  color: #1a1a2e;
+  color: white;
   transition: all 0.3s ease;
 }
 
 .gooey-nav-container nav ul li a {
   display: inline-block;
   padding: 0.4em 0.8em;
-  color: #1a1a2e;
+  color: white;
   text-decoration: none;
   font-weight: 500;
   font-size: large;
@@ -130,7 +130,7 @@
 }
 
 .gooey-nav-container .effect.text {
-  color: #1a1a2e;
+  color: white;
   transition: color 0.3s ease;
 }
 
