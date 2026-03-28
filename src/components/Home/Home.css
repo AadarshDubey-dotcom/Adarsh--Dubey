@@ -18,6 +18,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  -webkit-animation: floatAnim 4s ease-in-out infinite;
   animation: floatAnim 4s ease-in-out infinite; /* floating effect */
 }
 
@@ -77,10 +78,14 @@
   font-size: 1rem;
   border-radius: 50px;
   cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
 .home .button button:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
   transform: scale(1.05);
   border-color: #ffffff;
   background: rgba(255, 255, 255, 0.1);

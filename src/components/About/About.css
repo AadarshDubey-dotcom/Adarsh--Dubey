@@ -5,15 +5,20 @@
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   min-height: 50vh;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
 }
 
 .about:hover {
+  -webkit-transform: translateY(-5px) scale(1.02);
+  -moz-transform: translateY(-5px) scale(1.02);
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 25px 80px rgba(255,255,255,0.15);
   border-color: rgba(59, 130, 246, 0.5);

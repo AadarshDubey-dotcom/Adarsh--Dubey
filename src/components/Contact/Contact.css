@@ -43,11 +43,15 @@
   background: rgba(255, 255, 255, 0.08);
   background-color: rgba(30, 41, 59, 0.7);
   -webkit-backdrop-filter: blur(15px);
+  -moz-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
+  -webkit-animation: float 4s ease-in-out infinite;
   animation: float 4s ease-in-out infinite;
 }
 
@@ -60,6 +64,8 @@
   color: #ffffff;
   border-radius: 8px;
   outline: none;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
   transition: 0.3s;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -106,6 +112,8 @@
   color: #ffffff;
   border-radius: 8px;
   outline: none;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
   transition: 0.3s;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -264,6 +272,8 @@
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
   transition: all 0.2s ease;
   font-family: 'Montserrat', sans-serif;
   pointer-events: auto;
@@ -272,6 +282,8 @@
 }
 
 .contact-form button:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
   transform: scale(1.05);
   border-color: #ffffff;
   background: rgba(255, 255, 255, 0.1);
@@ -298,11 +310,15 @@
 .contact-links a {
   font-size: 24px;
   color: #a1a1aa;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
   transition: 0.3s;
 }
 
 .contact-links a:hover {
   color: white;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
   transform: scale(1.2);
 }
 
