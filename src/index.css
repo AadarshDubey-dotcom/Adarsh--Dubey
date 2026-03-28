@@ -85,3 +85,11 @@ section {
 .hover-btn {
   contain: layout style paint;
 }
+
+/* Disable animations on mobile for performance */
+@media (max-width: 768px) {
+  .no-mobile-animation {
+    transition: none !important;
+    transform: none !important;
+  }
+}
