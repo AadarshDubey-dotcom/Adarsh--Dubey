@@ -9,7 +9,7 @@ import Skill from './components/Skill/Skill';
 import Project from './components/Project/Project';   
 import Education from './components/Education/Education';
 import Resume from './components/Resume/Resume';
-import Contact from './components/Contact/Contact';  
+import Contact from './components/Contact/Contact';
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
