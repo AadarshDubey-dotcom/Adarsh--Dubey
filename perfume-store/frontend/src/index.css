@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark text-gray-200 font-body antialiased selection:bg-gold selection:text-dark;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-white;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-dark;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gold rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gold-light;
+}
