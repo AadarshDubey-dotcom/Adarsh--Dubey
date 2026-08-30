@@ -1,104 +1,55 @@
 import React, { useState } from 'react'
-import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope } from 'react-icons/fa';
-import './Contact.css'
-import ScrollFloat from '../ScrollFloat/ScrollFloat';
+import './Contact.css';
 
 const Contact = () => {
-  const [status, setStatus] = useState("");
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData); // yaha tum API call kar sakte ho
-    setStatus("Message sent successfully!");
-  };
-
   return (
     <div id="contact" className="contact-container">
       {/* Heading */}
-      <ScrollFloat>Let's Connect</ScrollFloat>
-      <p className="contact-tagline">
-        Feel free to reach out for collaborations or any queries.
-      </p>
+      <h1>Let's Connect</h1>
 
-      {/* Contact Form */}
-      <div className="contact-form-wrapper">
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="contact-form-left">
-            <input 
-              type="text" 
-              name="name" 
-              placeholder="Your Name" 
-              value={formData.name}
-              onChange={handleChange}
-              required 
-            />
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="Your Email" 
-              value={formData.email}
-              onChange={handleChange}
-              required 
-            />
-            <input 
-              type="text" 
-              name="subject" 
-              placeholder="Subject" 
-              value={formData.subject}
-              onChange={handleChange}
-              required 
-            />
-          </div>
-          <div className="contact-form-right">
-            <textarea 
-              name="message" 
-              placeholder="Your Message" 
-              rows="8" 
-              value={formData.message}
-              onChange={handleChange}
-              required
-            ></textarea>
-          </div>
-          <button type="submit">Send Message</button>
-          {status && <p className="success-msg">{status}</p>}
-        </form>
-      </div>
+      {/* damit*/}
+        <div className="damn-it">
+          <span className="default-text">damnitadarsh</span>
+          <span className="hover-text">damn it, adarsh!!</span>
+        </div>
 
-      {/* Social Links */}
       <div className="contact-links">
+      {/* Connect */}
+      <div className="contact-section">
+        <h3>Connect</h3>
         <a href="https://www.linkedin.com/in/adarsh-dubey-12qwas/" target="_blank" rel="noopener noreferrer">
-          <FaLinkedin />
+          LinkedIn
         </a>
         <a href="https://github.com/AadarshDubey-dotcom" target="_blank" rel="noopener noreferrer">
-          <FaGithub />
+         GitHub
         </a>
         <a href="https://www.instagram.com/aabhishe.kt/" target="_blank" rel="noopener noreferrer">
-          <FaInstagram />
+           Instagram
         </a>
-        <a href="mailto:dubeyadarsh74396@gmail.com">
-          <FaEnvelope />
-        </a>
-      </div>
+       </div>
 
-      {/* Footer Info */}
-      <p className="contact-footer">
-        📍 India • ⚡ Usually responds within 24 hours
-      </p>
-    </div>
-  )
+       {/* Get in touch */}
+       <div className="contact-section">
+          <h3>Get in touch</h3>
+           <a href="mailto:dubeyadarsh74396@gmail.com">
+             dubeyadarsh74396@gmail.com
+           </a>
+       </div>
+
+       {/* Location */}
+       <div className="contact-section">
+        <h3>Location</h3>
+        <span>Indore, MP, India</span>
+       </div>
+
+        {/* Community */}
+        <div className="contact-section">
+         <h3>Community</h3>
+         <span>Open for side-projects & collaborations</span>
+        </div>
+        </div>
+        </div>
+   )
 }
 
 export default Contact;

@@ -1,0 +1,48 @@
+.projects-overlay {
+  position: fixed;       /* pura screen cover karega */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;         /* full viewport */
+  background: #111;      /* dark overlay */
+  color: #fff;
+  overflow-y: auto;      /* agar content zyada ho toh scroll */
+  z-index: 9999;
+  padding: 2rem;
+}
+
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exit-btn {
+  background: #ff4d4d;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: #222;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.project-img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}

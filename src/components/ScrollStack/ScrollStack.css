@@ -1,0 +1,38 @@
+.scroll-stack-wrapper {
+  width: 100%;
+  padding: 10vh 1.5rem 20vh;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.scroll-stack-card {
+  position: sticky;
+  top: 15vh;              /* jaha aake card "stick" hoga */
+  min-height: 20rem;
+  padding: 2.5rem;
+  margin-bottom: 30px;
+  border-radius: 28px;
+  box-sizing: border-box;
+
+  background: #2D2D2C;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+  0 1px 0 rgba(255, 255, 255, 0.05) inset,   /* top edge subtle highlight */
+  0 20px 40px -15px rgba(0, 0, 0, 0.25),      /* soft outer shadow */
+  0 8px 16px -8px rgba(0, 0, 0, 0.15);        /* tight close shadow */
+}
+
+/* Har agla card thoda scale down aur upar shift hota dikhega jab neeche wala uspe chadhta hai */
+.scroll-stack-card:nth-child(1) { top: 10vh; }
+.scroll-stack-card:nth-child(2) { top: 12vh; }
+.scroll-stack-card:nth-child(3) { top: 14vh; }
+.scroll-stack-card:nth-child(4) { top: 16vh; }
+.scroll-stack-card:nth-child(5) { top: 18vh; }
+
+@media (max-width: 768px) {
+  .scroll-stack-card {
+    min-height: 18rem;
+    padding: 1.5rem;
+    border-radius: 22px;
+  }
+}

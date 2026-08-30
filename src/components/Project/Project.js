@@ -1,84 +1,41 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { useInView } from 'framer-motion';
+import { Link } from "react-router-dom";
 import "./Project.css";
-import ScrollFloat from "../ScrollFloat/ScrollFloat";
-import HoverButton from '../HoverButton/HoverButton';
 
 const projects = [
-  {
-    title: "Piano",
-    desc: "A responsive website built with pure HTML and CSS, showcasing clean design and user-friendly layout.",
-    tech: ["HTML", "CSS", "Javascript"],
-    image: "/piano.jpg",
-    link: "https://lnkd.in/gK2wNuFe",
-  },
-  {
-    title: "color gradient",
-    desc: "A creative use of color gradients to bring modern, vibrant visuals to the design.",
-    tech: ["JavaScript", "HTML", "CSS"],
-    image: "/color.jpg",
-    link: "https://lnkd.in/dCeM-aUr",
-  },
-  {
-    title: "Age Calculator",
-    desc: "An interactive Age Calculator built with HTML, CSS, and JavaScript.",
-    tech: ["HTML", "CSS", "Javascript"],
-    image: "/Age - Copy.jpg",
-    link: "https://lnkd.in/eSKHFqNP",
-  },
+  { title: "Piano", desc: "A polished web experience...", image: "piano.jpg" },
+  { title: "Color Gradient", desc: "A vibrant creative build...", image: "color.jpg" },
+  { title: "Age Calculator", desc: "A lightweight utility...", image: "age.jpg" }
 ];
 
 const Project = () => {
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-
   return (
-    <motion.section 
-      id="projects" 
-      className="projects"
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-    >
-      <ScrollFloat>
-        My Projects
-      </ScrollFloat>
-
-      <div className="projects-grid">
-        {projects.map((project, i) => (
-          <motion.div 
-            className="project-card" 
-            key={i}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.6, 
-              delay: i * 0.1,
-              ease: [0.25, 0.46, 0.45, 0.94]
-            }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <img src={project.image} alt={project.title} className="project-image" loading="lazy" />
-            <div className="project-content">
-              <h2>{project.title}</h2>
-              <p>{project.desc}</p>
-
-              <div className="tech">
-                {project.tech.map((t, index) => (
-                  <span key={index}>{t}</span>
-                ))}
-              </div>
-
-              <HoverButton link={project.link}>
-                View Project →
-              </HoverButton>
+    <section id="projects" className="projects">
+      <h1 className="color-white">Work</h1>
+      <div className="scroll-box-horizontal">
+        <div className="scroll-content-horizontal">
+          {projects.map((p, i) => (
+            <div key={i} className="project-card">
+              <h2 className="text-white">{p.title}</h2>
+              <img src={p.image} alt={p.title} className="project-img" />
+              <p>{p.desc}</p>
             </div>
-          </motion.div>
-        ))}
+          ))}
+          {projects.map((p, i) => (
+            <div key={`dup-${i}`} className="project-card">
+              <h2>{p.title}</h2>
+              <img src={p.image} alt={p.title} className="project-img" />
+              <p>{p.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </motion.section>
+
+      {/* ✅ Button to new page */}
+      <Link to="/all-projects" className="see-all-btn">
+        See All Work →
+      </Link>
+    </section>
   );
 };
 

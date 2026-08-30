@@ -2,7 +2,6 @@ import React from 'react'
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import './Resume.css'
-import ScrollFloat from "../ScrollFloat/ScrollFloat";
 import HoverButton from '../HoverButton/HoverButton';
 
 const Resume = () => {
@@ -18,7 +17,7 @@ const Resume = () => {
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      <ScrollFloat>My Resume</ScrollFloat>
+     <h1>My Resume</h1>
       <div className="resume-content">
         <div className="resume-left">
           <p className="resume-desc">

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import StarsBackground from "../StarsBackground";
-import BlurText from "../BlurText";
+import BlurText from "../ui/BlurText";
 import "./Intro.css";
 
 const Intro = ({ onFinish }) => {
@@ -60,7 +59,6 @@ const Intro = ({ onFinish }) => {
       animate={{ opacity: isExiting ? 0 : 1 }}
       transition={{ duration: 1 }}
     >
-      <StarsBackground />
 
       <motion.h1
         className="intro-text"
