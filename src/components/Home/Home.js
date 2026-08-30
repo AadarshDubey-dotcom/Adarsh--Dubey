@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion';
 import './Home.css';
 import RotatingText from '../RotatingText/RotatingText';
-import HoverButton from '../HoverButton/HoverButton';
+import HoverButton from '../HoverBorderGradient/HoverButton/HoverButton';
 import { useInView } from 'framer-motion';
 import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import { SmoothCursor } from "../lightswind/smooth-cursor";
