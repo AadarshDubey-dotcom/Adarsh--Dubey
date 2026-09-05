@@ -27,6 +27,9 @@ const About = () => {
       <section className="about-card-content">
         <h1>ADARSH DUBEY</h1>
         <AboutCard /> 
+        <p>ENGINEER BY DAY, GAMER BY NIGHT
+DEBUGGER AT TIMES
+</p>   
       </section>
       <motion.p
         className="about-copy"
@@ -52,28 +55,6 @@ const About = () => {
         interfaces that are not just functional, but genuinely enjoyable to use.
       </motion.p>
     </div>
-  </div>
-
-  <div className="about-right">
-    <div className="flex gap-6 mt-8">
-        <TiltedCard
-          imageSrc="/harsh.png"
-          altText="Adarsh Dubey"
-          captionText="Adarsh Dubey"
-          containerHeight="250px"
-          containerWidth="250px"
-          imageHeight="250px"
-          imageWidth="250px"
-          rotateAmplitude={12}
-          scaleOnHover={1.05}
-          showTooltip
-          overlayContent={
-            <div className="overlay-content">
-              <p>Hi, I&apos;m Adarsh!</p>
-            </div>
-          }
-        />
-      </div>
   </div>
 </section>
 

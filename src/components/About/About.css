@@ -1,4 +1,6 @@
 .about-section {
+  display: flex;                /* left content ko flex me rakha */
+  justify-content: center;      /* center align horizontally */
   align-items: center;
   min-height: 100vh;
   background: #FFFAFA;
@@ -8,7 +10,7 @@
 
 .about-card {
   display: block;
-  width: 100%;
+  max-width: 100%;
   min-width: 0;
   position: relative;
   z-index: 1;
@@ -25,23 +27,42 @@
 
 .about-card-content h1 {
   font-family: 'Luckiest Guy', 'Poppins', sans-serif;
-  font-size: 10rem;
-  font-weight: 800;
+  font-size: 8rem;
+  font-weight: 750;
   color: #111111;
-  align-items: center;
   text-align: center;
+  position: relative;
+  animation: slideUp 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100px); /* start from bottom */
+    opacity: 0;                   /* hidden */
+  }
+  to {
+    transform: translateY(0);     /* normal position */
+    opacity: 1;                   /* visible */
+  }
+}
+
+.about-card-content p {
+  font-family: 'Luckiest Guy', 'Open Sans', sans-serif;
+  font-size: 4rem;
+  font-weight: 620;
+  line-height: 1.3;
+  color: #252525;
 }
 
 .about-copy {
   padding-top: 40px;
-  margin-left: 50px;
-  margin-right: 400px;
+  padding-left: 30px;
   font-family: 'Inter', 'Open Sans', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 300;
+  font-size: 1.55rem;
+  font-weight: 320;
   line-height: 1.8;
   color: #252525;
-  padding-right: 80px;
+  padding-right: 60px;
 }
 
 .about-highlight {
@@ -57,23 +78,11 @@
   will-change: transform, filter, opacity;
 }
 
-
 .about-left {
-  flex: 1 1 560px;
-  min-width: 50%;
-  margin-right: 2rem;
-  padding-right: 3rem;
-}
-
-.about-right {
-  flex: 1 1 280px;
-  min-width: 0;
+  flex: 1;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  margin-left: 2rem;
-  padding-left: 3rem;
-  margin-bottom: 10rem;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 @media (max-width: 900px) {
@@ -81,13 +90,10 @@
     display: block;
   }
 
-  .about-left,
-  .about-right {
+  .about-left {
     width: 100%;
-  }
-
-  .about-right {
-    margin-top: 2rem;
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -102,11 +108,11 @@
     padding-right: 0;
   }
 
-  .about-card-content h2 {
+  .about-card-content h1 {
     font-size: 3rem;
   }
 
   .about-copy {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }

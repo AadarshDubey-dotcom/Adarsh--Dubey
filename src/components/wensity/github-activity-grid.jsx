@@ -4,35 +4,6 @@ import * as React from "react";
 import { motion, useSpring, useMotionValue, useReducedMotion } from "framer-motion";
 import { cn } from "../../lib/utils";
 
-/* ────────────────────────────────────────────────────────────────────────── */
-/*  Types                                                                     */
-/* ────────────────────────────────────────────────────────────────────────── */
-
-export interface ActivityDay {
-  /** ISO date string (YYYY-MM-DD). */
-  date: string;
-  /** 0..n raw count (will be bucketed into 5 levels). */
-  count: number;
-}
-
-export interface GitHubActivityGridProps {
-  /**
-   * Days, oldest-first. Length should be exactly the visible window
-   * (typically 365 or 371 for a clean 53-week grid).
-   */
-  days: ActivityDay[];
-  /**
-   * Maximum count used to compute level buckets. Defaults to the max in
-   * `days` (so colors are always relative to the dataset).
-   */
-  maxCount?: number;
-  /** Cell size in px. Default 11. */
-  cellSize?: number;
-  /** Gap between cells in px. Default 3. */
-  cellGap?: number;
-  className?: string;
-}
-
 // Contribution-density buckets. We use EMERALD (not the brand chili) because:
 //   1. Universally — including GitHub itself — green = "growth / activity".
 //   2. Painting commits in chili-red turns the entire grid into a "blood
@@ -46,9 +17,9 @@ const LEVEL_BG = [
   "bg-emerald-500/35 dark:bg-emerald-700",
   "bg-emerald-500/65 dark:bg-emerald-500",
   "bg-emerald-500 dark:bg-emerald-400",
-] as const;
+];
 
-const WEEKDAYS = ["", "Mon", "", "Wed", "", "Fri", ""] as const;
+const WEEKDAYS = ["", "Mon", "", "Wed", "", "Fri", ""];
 const MONTHS = [
   "Jan",
   "Feb",
@@ -78,7 +49,7 @@ export function GitHubActivityGrid({
   cellSize = 11,
   cellGap = 3,
   className,
-}: GitHubActivityGridProps) {
+}) {
   const reduce = useReducedMotion();
   /* ---------------- bucketise into 0..4 levels --------------------------- */
   const max = React.useMemo(() => {
@@ -86,7 +57,7 @@ export function GitHubActivityGrid({
     return Math.max(1, ...days.map((d) => d.count));
   }, [days, maxCount]);
 
-  function level(count: number) {
+  function level(count) {
     if (count <= 0) return 0;
     const ratio = count / max;
     if (ratio < 0.25) return 1;
@@ -98,26 +69,26 @@ export function GitHubActivityGrid({
   /* ---------------- group into [week][weekday] grid ---------------------- */
   // Day 0 = first cell. We pad the start to align Sunday=0 of week 0.
   const grid = React.useMemo(() => {
-    if (days.length === 0) return { weeks: [] as (ActivityDay | null)[][], monthLabels: [] as { col: number; label: string }[] };
+    if (days.length === 0) return { weeks: [], monthLabels: [] };
     const first = new Date(days[0].date + "T00:00:00");
     const startWeekday = first.getDay(); // 0..6
-    const flat: (ActivityDay | null)[] = [
+    const flat = [
       ...Array.from({ length: startWeekday }, () => null),
       ...days,
     ];
     // pad tail so each week is full
     while (flat.length % 7 !== 0) flat.push(null);
 
-    const weeks: (ActivityDay | null)[][] = [];
+    const weeks = [];
     for (let i = 0; i < flat.length; i += 7) {
       weeks.push(flat.slice(i, i + 7));
     }
 
     // month labels per week column (label appears at first week containing day 1..7 of month)
-    const monthLabels: { col: number; label: string }[] = [];
+    const monthLabels = [];
     let lastMonth = -1;
     weeks.forEach((wk, col) => {
-      const firstReal = wk.find(Boolean) as ActivityDay | undefined;
+      const firstReal = wk.find(Boolean);
       if (!firstReal) return;
       const m = new Date(firstReal.date + "T00:00:00").getMonth();
       if (m !== lastMonth) {
@@ -129,13 +100,13 @@ export function GitHubActivityGrid({
   }, [days]);
 
   /* ---------------- single global tooltip — springed position ----------- */
-  const containerRef = React.useRef<HTMLDivElement | null>(null);
+  const containerRef = React.useRef(null);
   const tooltipX = useMotionValue(0);
   const tooltipY = useMotionValue(0);
   const springX = useSpring(tooltipX, { stiffness: 480, damping: 40, mass: 0.5 });
   const springY = useSpring(tooltipY, { stiffness: 480, damping: 40, mass: 0.5 });
-  const [hover, setHover] = React.useState<ActivityDay | null>(null);
-  const gridViewportRef = React.useRef<HTMLDivElement | null>(null);
+  const [hover, setHover] = React.useState(null);
+  const gridViewportRef = React.useRef(null);
   const [gridViewportWidth, setGridViewportWidth] = React.useState(0);
 
   React.useEffect(() => {
@@ -155,10 +126,7 @@ export function GitHubActivityGrid({
     return () => observer.disconnect();
   }, []);
 
-  function onCellEnter(
-    e: React.PointerEvent<HTMLButtonElement>,
-    day: ActivityDay
-  ) {
+  function onCellEnter(e, day) {
     const cont = containerRef.current;
     if (!cont) return;
     const r = e.currentTarget.getBoundingClientRect();
@@ -312,9 +280,7 @@ export function GitHubActivityGrid({
                           // Synthesise a pointer-style enter for keyboard nav
                           const cont = containerRef.current;
                           if (!cont) return;
-                          const r = (
-                            e.currentTarget as HTMLButtonElement
-                          ).getBoundingClientRect();
+                          const r = e.currentTarget.getBoundingClientRect();
                           const cr = cont.getBoundingClientRect();
                           tooltipX.set(r.left - cr.left + r.width / 2);
                           tooltipY.set(r.top - cr.top - 6);
@@ -399,7 +365,7 @@ function Legend() {
   );
 }
 
-function formatDate(iso: string) {
+function formatDate(iso) {
   const d = new Date(iso + "T00:00:00");
   return d.toLocaleDateString(undefined, {
     weekday: "short",
@@ -418,10 +384,10 @@ function formatDate(iso: string) {
  */
 export function mockActivityYear(
   seed = 42,
-  endDate: Date = new Date()
-): ActivityDay[] {
+  endDate = new Date()
+) {
   const total = 371;
-  const days: ActivityDay[] = [];
+  const days = [];
   let s = seed;
   function rand() {
     s = (s * 9301 + 49297) % 233280;

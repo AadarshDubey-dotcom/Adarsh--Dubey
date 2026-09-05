@@ -5,11 +5,14 @@
   align-items: center;
   background: transparent;
   padding: 1.25rem clamp(1.25rem, 4vw, 3.5rem);
-  position: sticky;          /* navbar fixed on scroll */
   top: 0;
   z-index: 1000;
   color: var(--navbar-ink);
   mix-blend-mode: difference;
+  position: fixed;       /* हमेशा ऊपर रहेगा */
+  left: 0;
+  width: 100%;
+  height: 60px;          /* navbar की height */
 }
 
 .navbar-brand {
@@ -103,4 +106,10 @@
     align-items: flex-start;
     gap: 0.9rem;
   }
+}
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+.navbar.visible {
+  transform: translateY(0);
 }
