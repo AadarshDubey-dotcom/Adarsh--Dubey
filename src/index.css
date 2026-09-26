@@ -7,6 +7,23 @@ html {
 	scroll-behavior: smooth;
 }
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	margin: 0;
+}
+
 html.lenis,
 html.lenis body {
 	height: auto;
@@ -18,4 +35,10 @@ html.lenis.lenis-smooth {
 
 .lenis.lenis-smooth [data-lenis-prevent] {
 	overflow: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
 }

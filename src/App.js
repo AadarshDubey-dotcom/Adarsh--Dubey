@@ -20,6 +20,11 @@ function App() {
   useEffect(() => {
     if (showIntro) return undefined;
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const supportsFinePointer = window.matchMedia('(pointer: fine)').matches;
+
+    if (prefersReducedMotion || !supportsFinePointer) return undefined;
+
     const lenis = new Lenis({
       duration: 1.15,
       easing: (value) => Math.min(1, 1.001 - Math.pow(2, -10 * value)),

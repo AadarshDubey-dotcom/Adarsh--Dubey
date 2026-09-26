@@ -13,6 +13,7 @@
   left: 0;
   width: 100%;
   height: 60px;          /* navbar की height */
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .navbar-brand {
@@ -52,6 +53,9 @@
 }
 
 .navbar-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   text-decoration: none;
   color: inherit;
   font-weight: 500;
@@ -75,13 +79,25 @@
   color: inherit;
   background: transparent;
   cursor: pointer;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  gap: 4px;
+}
+
+.navbar-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
 }
 
 @media (max-width: 768px) {
   .navbar {
     align-items: center;
-    flex-wrap: wrap;
-    row-gap: 1rem;
+    height: auto;
+    min-height: 60px;
+    padding-block: 0.5rem;
   }
 
   .navbar-toggle {
@@ -95,6 +111,7 @@
     align-items: flex-start;
     justify-content: space-between;
     padding: 0.5rem 0 0.75rem;
+    background: rgba(20, 20, 20, 0.96);
   }
 
   .navbar-menu.is-open {
@@ -105,6 +122,11 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.9rem;
+    width: 100%;
+  }
+
+  .navbar-links a {
+    width: 100%;
   }
 }
 .navbar.hidden {

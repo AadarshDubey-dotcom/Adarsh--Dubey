@@ -119,9 +119,11 @@ export function SmoothCursor({
 
   const defaultCursor = <DefaultCursorSVG size={size} color={color} />;
   const cursorElement = cursor || defaultCursor;
+  const isTouchDevice = typeof window !== "undefined"
+    && window.matchMedia("(pointer: coarse)").matches;
 
   useEffect(() => {
-    if (disabled) return;
+    if (disabled || isTouchDevice) return;
 
     const updateVelocity = (currentPos) => {
       const currentTime = Date.now();
@@ -278,6 +280,7 @@ export function SmoothCursor({
     rotateOnMove,
     scaleOnClick,
     hideOnLeave,
+    isTouchDevice,
     magneticDistance,
     magneticElements,
     onCursorMove,
@@ -285,7 +288,7 @@ export function SmoothCursor({
     onCursorLeave
   ]);
 
-  if (disabled || !isVisible) return null;
+  if (disabled || isTouchDevice || !isVisible) return null;
 
   return (
     <>

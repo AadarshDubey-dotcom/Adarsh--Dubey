@@ -1,21 +1,21 @@
 .logo-loop {
   overflow: hidden;
   width: 100%;
-  padding: 40px 0;
+  padding: clamp(1.5rem, 5vw, 2.5rem) 0;
 }
 
 .logo-track {
   display: flex;
-  gap: 60px;
+  gap: clamp(1.5rem, 5vw, 3.75rem);
   width: max-content;
   animation: scroll 20s linear infinite;
 }
 
 .logo-track img {
-  height: 80px;
-  width: 80px;
+  height: clamp(3.5rem, 10vw, 5rem);
+  width: clamp(3.5rem, 10vw, 5rem);
   object-fit: contain;
-  transition: 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .logo-track img:hover {
@@ -27,6 +27,12 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* half shift because content is duplicated */
+  }
+}
+
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  .logo-track {
+    animation-play-state: running;
   }
 }

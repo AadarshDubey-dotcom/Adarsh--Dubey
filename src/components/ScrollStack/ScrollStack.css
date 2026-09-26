@@ -31,8 +31,24 @@
 
 @media (max-width: 768px) {
   .scroll-stack-card {
-    min-height: 18rem;
+    top: 8vh;
+    min-height: 16rem;
     padding: 1.5rem;
     border-radius: 22px;
+  }
+
+  .scroll-stack-card:nth-child(1) { top: 6vh; }
+  .scroll-stack-card:nth-child(2) { top: 8vh; }
+  .scroll-stack-card:nth-child(3) { top: 10vh; }
+  .scroll-stack-card:nth-child(4) { top: 12vh; }
+  .scroll-stack-card:nth-child(5) { top: 14vh; }
+
+  .scroll-stack-wrapper {
+    padding: 6rem 1rem 10rem;
+  }
+
+  /* Keep one compact mobile rule for sticky cards. */
+  .scroll-stack-card {
+    min-height: 16rem;
   }
 }

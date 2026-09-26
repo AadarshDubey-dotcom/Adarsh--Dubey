@@ -78,24 +78,27 @@ const Education = () => {
   return (
     <div className="education-container">
       <div className="sidebar">
-        <h2
+        <button
+          type="button"
           className={activeSection === 'experience' ? 'active' : ''}
-          onMouseEnter={() => setActiveSection('experience')}
+          onClick={() => setActiveSection('experience')}
         >
           Experience
-        </h2>
-        <h2
+        </button>
+        <button
+          type="button"
           className={activeSection === 'education' ? 'active' : ''}
-          onMouseEnter={() => setActiveSection('education')}
+          onClick={() => setActiveSection('education')}
         >
           Education
-        </h2>
-        <h2
+        </button>
+        <button
+          type="button"
           className={activeSection === 'certificates' ? 'active' : ''}
-          onMouseEnter={() => setActiveSection('certificates')}
+          onClick={() => setActiveSection('certificates')}
         >
           Certificates
-        </h2>
+        </button>
       </div>
 
       <div className="content-area">{renderContent()}</div>
