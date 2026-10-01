@@ -5,7 +5,7 @@ import "./Project.css";
 const projects = [
   { title: "Piano", desc: "A polished web experience...", image: "piano.jpg" },
   { title: "Color Gradient", desc: "A vibrant creative build...", image: "color.jpg" },
-  { title: "Age Calculator", desc: "A lightweight utility...", image: "age.jpg" }
+  { title: "Age Calculator", desc: "A lightweight utility...", image: "/age.svg" }
 ];
 
 const Project = () => {

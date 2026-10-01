@@ -6,7 +6,6 @@ import HoverButton from '../HoverBorderGradient/HoverButton/HoverButton';
 import { useInView } from 'framer-motion';
 import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import { SmoothCursor } from "../lightswind/smooth-cursor";
-import ScrollVelocity from '../ui/ScrollVelocity';
 
 const Home = () => {
   const ref = React.useRef(null);
@@ -33,15 +32,8 @@ const Home = () => {
         <div className="home-wrapper">
           <div className="home-left">
             <div className="image-wrapper">
-              <ScrollVelocity
-                texts={['WEB DEVELOPER ', 'FRONTEND DEVELOPER ']}
-                velocity={120}
-                className="custom-scroll-text"
-                parallaxClassName="scrollvelocity"
-              />
-              <img src="harsh.png" alt="Anime" className="main-image" />
+              <img src="home 2.jpg" alt="Home" className="main-image" />
             </div>
-
             <div className="connect-with-me">
               {/*<p className="connect-text">Connect with me</p>*/}
               <div className="social-icons">
