@@ -1,12 +1,14 @@
+/* Reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Home section */
 .home {
   width: 100%;
-  height: 100%;
+  height: 100vh;              /* full viewport height */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,26 +18,19 @@
   background-attachment: fixed;
 }
 
-.home-wrapper {
+.home-left {
+  position: relative;         /* important for absolute children */
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.home-left {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  justify-content: center;    /* center content vertically */
 }
 
-/* Image section */
+/* Background image */
 .image-wrapper {
-  position: relative;   /* background ke tarah behave kare */
+  position: absolute;         /* background layer */
   top: 0;
   left: 0;
   width: 100%;
@@ -45,21 +40,41 @@
 
 .main-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover;    /* poora section fill kare */
+  height: 100vh;
+  object-fit: cover;
   display: block;
 }
 
-/* Connect with me section */
+/* Font (MaskedHeading center) */
+.font {
+  position: relative;
+  z-index: 2;                 /* above background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+}
+
+.font h1,
+.font .masked-heading {
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.03em;
+}
+
+/* Connect with me (left-bottom corner) */
 .connect-with-me {
   position: absolute;
-  right: 20px;
+  left: 20px;
   bottom: 20px;
   display: flex;
   flex-direction: row;
-  align-items: center;
   gap: 12px;
-  z-index: 2;           /* image ke upar icons */
+  z-index: 3;                 /* above everything */
 }
 
 .social-icons {
@@ -96,11 +111,16 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .font {
+    font-size: 1.5rem;
+    height: auto;
+    padding: 20px;
+  }
+
   .connect-with-me {
-    position: static;
-    flex-direction: row;
+    position: static;          /* move below content */
     justify-content: center;
-    margin-top: 12px;
+    margin-top: 20px;
   }
 
   .social-link {

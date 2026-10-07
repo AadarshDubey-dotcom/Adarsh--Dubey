@@ -29,31 +29,34 @@ const Home = () => {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
-        <div className="home-wrapper">
-          <div className="home-left">
-            <div className="image-wrapper">
-              <img src="home 2.jpg" alt="Home" className="main-image" />
-            </div>
-            <div className="connect-with-me">
-              {/*<p className="connect-text">Connect with me</p>*/}
-              <div className="social-icons">
-                <a href="https://www.linkedin.com/in/adarsh-dubey-12qwas/" target="_blank" rel="noopener noreferrer" className="social-link linkedin">
-                  <FaLinkedin />
-                </a>
-                <a href="https://github.com/AadarshDubey-dotcom" target="_blank" rel="noopener noreferrer" className="social-link github">
-                  <FaGithub />
-                </a>
-                <a href="https://www.instagram.com/aabhishe.kt/" target="_blank" rel="noopener noreferrer" className="social-link instagram">
-                  <FaInstagram />
-                </a>
-                <a href="mailto:dubeyadarsh74396@gmail.com" className="social-link email">
-                  <FaEnvelope />
-                </a>
-              </div>
-            </div>
+        <div className="home-left">
+          <div className="image-wrapper">
+            <img src="/hero.png" alt="Home" className="main-image" />
           </div>
 
-        </div>
+        {/* Font center me */}
+        <div className="font">
+  </div>
+public/home.png
+  {/* Connect with me left-bottom */}
+  <div className="connect-with-me">
+    <div className="social-icons">
+      <a href="https://www.linkedin.com/in/adarsh-dubey-12qwas/" target="_blank" rel="noopener noreferrer" className="social-link linkedin">
+        <FaLinkedin />
+      </a>
+      <a href="https://github.com/AadarshDubey-dotcom" target="_blank" rel="noopener noreferrer" className="social-link github">
+        <FaGithub />
+      </a>
+      <a href="https://www.instagram.com/aabhishe.kt/" target="_blank" rel="noopener noreferrer" className="social-link instagram">
+        <FaInstagram />
+      </a>
+      <a href="mailto:dubeyadarsh74396@gmail.com" className="social-link email">
+        <FaEnvelope />
+      </a>
+    </div>
+  </div>
+</div>
+
       </motion.section>
     </>
   );

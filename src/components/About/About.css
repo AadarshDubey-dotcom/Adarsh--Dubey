@@ -6,6 +6,8 @@
   background: #FFFAFA;
   padding: clamp(3.5rem, 8vw, 6rem) clamp(1rem, 4vw, 3rem);
   box-sizing: border-box;
+  padding-top: 30px;
+  padding-bottom: 60px;
 }
 
 .about-card {

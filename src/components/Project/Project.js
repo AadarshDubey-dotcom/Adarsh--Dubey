@@ -16,13 +16,14 @@ const Project = () => {
         <div className="scroll-content-horizontal">
           {projects.map((p, i) => (
             <div key={i} className="project-card">
-              <h2 className="text-white">{p.title}</h2>
+              <h2>{p.title}</h2>
               <img src={p.image} alt={p.title} className="project-img" />
               <p>{p.desc}</p>
             </div>
           ))}
           {projects.map((p, i) => (
             <div key={`dup-${i}`} className="project-card">
+              ''
               <h2>{p.title}</h2>
               <img src={p.image} alt={p.title} className="project-img" />
               <p>{p.desc}</p>
